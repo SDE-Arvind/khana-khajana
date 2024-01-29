@@ -1,7 +1,16 @@
 import React from 'react'
+import { css } from '@emotion/css'
 
 export default function About() {
+    const container = css`
+    display:flex;
+    justify-content: center;
+    font-size:40px
+    `
+
+
+
     return (
-        <div>About</div>
+        <div className={container}>This is about About section</div>
     )
 }

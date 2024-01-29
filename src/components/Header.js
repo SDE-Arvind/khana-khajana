@@ -1,5 +1,6 @@
 import { Switch, TextField } from '@mui/material';
 
+import { Link } from 'react-router-dom';
 import MenuItem from './MenuItem';
 import companyLogo from '../icons/logo.jpeg';
 import { css } from "@emotion/css"
@@ -25,18 +26,19 @@ export const Header = () => {
     const toggleTheme = () => {
         setIsDarkTheme(prev => !prev)
     }
-    const menuItems = ["Home", "About", "Help", "Contact"];
+    const menuItems = [{ title: "Home", to: "/" }, { title: "About", to: "/about" }, { title: "Help", to: "/help" }, { title: "Contact", to: "/contact" }];
     return (
         <div className={container}>
-            <img height={50} width={50} alt="logo" src={companyLogo} />
-
+            <Link to="/">
+                <img height={50} width={50} alt="logo" src={companyLogo} />
+            </Link>
             <TextField id="outlined-basic" label="Search" variant="outlined" />
 
             <div style={{ display: 'flex', alignItems: 'center' }}>
                 <ul className={listView}>
                     {
                         menuItems.map(item => {
-                            return <MenuItem>{item}</MenuItem>
+                            return <Link to={item.to}> <MenuItem>{item.title}</MenuItem></Link>
                         })
                     }
 

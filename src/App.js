@@ -1,18 +1,16 @@
-import Body from './components/Body';
+import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
+
+import Footer from './components/Footer';
 import { Header } from './components/Header';
-import { css } from '@emotion/css';
+import React from 'react';
 
-const container = css`
-
-`
-
-function App() {
+function AppLayout() {
   return (
-    <div className={container}>
+    <>
       <Header />
-      <Body />
-    </div>
+      <Outlet />
+      <Footer />
+    </>
   );
 }
-
-export default App;
+export default AppLayout
