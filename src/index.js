@@ -1,5 +1,6 @@
 import './index.css';
 
+import React, { Suspense, lazy } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import About from './components/About';
@@ -7,10 +8,10 @@ import AppLayout from './App';
 import Body from './components/Body';
 import ContactUs from './components/ContactUs';
 import Help from './components/Help';
-import React from 'react';
 import ReactDOM from 'react-dom/client';
-import RestaurantDetails from './components/RestaurantDetails';
 import reportWebVitals from './reportWebVitals';
+
+const RestaurantDetails = lazy(() => import('./components/RestaurantDetails'));
 
 const appRouter = createBrowserRouter([
   {
@@ -35,7 +36,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "restaurant/:id",
-        element: <RestaurantDetails />,
+        element: <Suspense fallback={<Body />}><RestaurantDetails /></Suspense>,
       },
     ]
 

@@ -24,7 +24,6 @@ const Body = () => {
         {allrestaurnats.map((item, index) => (
             <Link
                 to={"/restaurant/" + item?.info?.id}
-                key={item?.info?.id}
             >
                 <RestoItem key={item?.info?.id} item={item?.info} />
             </Link>
