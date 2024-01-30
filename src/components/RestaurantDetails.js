@@ -28,6 +28,8 @@ export default function RestaurantDetails() {
         return (<Card sx={{ justifyContent: 'space-between', marginBottom: 1, padding: 2, display: 'flex' }}>
             <div>
                 <InputLabel sx={{ fontSize: 20 }}>{item?.name}</InputLabel>
+                <InputLabel sx={{ fontSize: 15 }}>{item?.description}</InputLabel>
+
                 <InputLabel sx={{ fontSize: 20 }}> {item?.defaultPrice || item?.price > 0
                     ? new Intl.NumberFormat("en-IN", {
                         style: "currency",
