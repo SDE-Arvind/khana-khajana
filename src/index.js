@@ -9,6 +9,7 @@ import ContactUs from './components/ContactUs';
 import Help from './components/Help';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import RestaurantDetails from './components/RestaurantDetails';
 import reportWebVitals from './reportWebVitals';
 
 const appRouter = createBrowserRouter([
@@ -31,6 +32,10 @@ const appRouter = createBrowserRouter([
       {
         path: '/help',
         element: <Help />
+      },
+      {
+        path: "restaurant/:id",
+        element: <RestaurantDetails />,
       },
     ]
 
