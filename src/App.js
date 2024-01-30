@@ -6,11 +6,11 @@ import React from 'react';
 
 function AppLayout() {
   return (
-    <>
+    <div style={{ marginTop: 100 }}>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 }
 export default AppLayout

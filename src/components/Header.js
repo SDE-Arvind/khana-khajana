@@ -7,11 +7,14 @@ import { css } from "@emotion/css"
 import { useState } from 'react';
 
 const container = css`
+position: fixed;
+top: 0;
+width: 100%;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 display: flex;
 justify-content: space-between;
 align-items: center;
 padding: 10px 10px 10px 10px;
-border: 1px solid #ccc
 `
 
 const listView = css`
