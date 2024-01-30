@@ -8,7 +8,6 @@ export default function RestoItem({ item }) {
 
     const customButtonStyle = css`
     color: white;
-    font-size: 30px;
   `;
     console.log("ITEM ", item)
     return (
@@ -22,7 +21,7 @@ export default function RestoItem({ item }) {
                 alt="Paella dish"
             />
             <InputLabel className={customButtonStyle}>{item?.name}</InputLabel>
-            <InputLabel sx={{ fontSize: 20 }} >{item?.locality}</InputLabel>
+            <InputLabel >{item?.locality}</InputLabel>
             {/* <Button sx={{ fontSize: 12 }}>View Detail</Button> */}
         </Card>
     )
