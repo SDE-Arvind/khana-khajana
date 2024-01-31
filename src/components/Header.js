@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import MenuItem from './MenuItem';
 import companyLogo from '../icons/logo.jpeg';
 import { css } from "@emotion/css"
+import { useSelector } from 'react-redux';
 import { useState } from 'react';
 
 const container = css`
@@ -25,6 +26,7 @@ margin-right:30px;
 `
 
 export const Header = () => {
+    const cartItems = useSelector((state) => state.cart.items)
     const [isDarkTheme, setIsDarkTheme] = useState(true)
     const toggleTheme = () => {
         setIsDarkTheme(prev => !prev)
@@ -41,12 +43,12 @@ export const Header = () => {
                 <ul className={listView}>
                     {
                         menuItems.map(item => {
-                            return <Link to={item.to}> <MenuItem>{item.title}</MenuItem></Link>
+                            return <Link key={item?.id} to={item.to}> <MenuItem >{item.title}</MenuItem></Link>
                         })
                     }
 
                 </ul>
-
+                <Link to={'/cart'}> <MenuItem>Cart ({cartItems?.length})</MenuItem></Link>
                 dark
                 <Switch
                     value="off"

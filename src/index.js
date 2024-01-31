@@ -6,10 +6,13 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import About from './components/About';
 import AppLayout from './App';
 import Body from './components/Body';
+import Cart from './components/Cart';
 import ContactUs from './components/ContactUs';
 import Help from './components/Help';
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
+import { store } from './store';
 
 const RestaurantDetails = lazy(() => import('./components/RestaurantDetails'));
 
@@ -35,6 +38,10 @@ const appRouter = createBrowserRouter([
         element: <Help />
       },
       {
+        path: '/cart',
+        element: <Cart />
+      },
+      {
         path: "restaurant/:id",
         element: <Suspense fallback={<Body />}><RestaurantDetails /></Suspense>,
       },
@@ -43,7 +50,8 @@ const appRouter = createBrowserRouter([
   }
 ])
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={appRouter} />)
+root.render(<Provider store={store}>
+  <RouterProvider router={appRouter} /></Provider>)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

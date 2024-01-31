@@ -2,12 +2,17 @@ import { Button, Card, Container, InputLabel } from '@mui/material';
 import { MENU_ITEM_TYPE_KEY, MENU_URL, RESTAURANT_TYPE_KEY } from '../utils/constants';
 
 import React from 'react'
+import { addItem } from '../slice/cartSlice';
 import { css } from '@emotion/css';
-import { display } from '@mui/system';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import useResMenuData from '../hooks/useMenuData';
 
 export default function RestaurantDetails() {
+
+    const dispatch = useDispatch();
+
+
     const restaurantDetail = css`
     MenuItem
     
@@ -21,12 +26,14 @@ export default function RestaurantDetails() {
         MENU_ITEM_TYPE_KEY
     );
 
-    console.log("res ", restaurant)
-    console.log("menu ", menuItems)
-
     const MenuItem = ({ item }) => {
+
+        const handleAddToCart = () => {
+            dispatch(addItem(item));
+        };
+
         return (<Card sx={{ justifyContent: 'space-between', marginBottom: 1, padding: 2, display: 'flex' }}>
-            <div>
+            <div style={{ width: '80%' }}>
                 <InputLabel sx={{ fontSize: 20 }}>{item?.name}</InputLabel>
                 <InputLabel sx={{ fontSize: 15 }}>{item?.description}</InputLabel>
 
@@ -37,9 +44,9 @@ export default function RestaurantDetails() {
                     }).format((item?.defaultPrice || item?.price) / 100)
                     : ""}</InputLabel>
             </div>
-            <Button variant="contained">Add</Button>
+            <Button variant="contained" onClick={handleAddToCart}>Add</Button>
 
-        </Card>)
+        </Card >)
     }
     return (
         <Container>
