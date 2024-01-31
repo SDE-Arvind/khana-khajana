@@ -3,7 +3,6 @@ import { MENU_ITEM_TYPE_KEY, MENU_URL, RESTAURANT_TYPE_KEY } from '../utils/cons
 
 import React from 'react'
 import { addItem } from '../slice/cartSlice';
-import { css } from '@emotion/css';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import useResMenuData from '../hooks/useMenuData';
