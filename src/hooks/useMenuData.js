@@ -54,7 +54,7 @@ const useResMenuData = (
             }
         }
         getRestaurantInfo(); // call getRestaurantInfo function so it fetch api data and set data in restaurant state variable
-    }, []);
+    }, [swiggy_menu_api_URL, MENU_ITEM_TYPE_KEY, RESTAURANT_TYPE_KEY, resId]);
 
 
     return [restaurant, menuItems];

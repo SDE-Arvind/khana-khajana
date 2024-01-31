@@ -44,7 +44,7 @@ const useResData = (API_URL) => {
             }
         }
         getRestaurants();
-    }, []);
+    }, [API_URL,]);
 
 
     return [allRestaurants, filteredRestaurants]; // return allRestaurants & filteredRestaurants data
