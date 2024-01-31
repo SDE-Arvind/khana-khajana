@@ -11,13 +11,6 @@ import useResMenuData from '../hooks/useMenuData';
 export default function RestaurantDetails() {
 
     const dispatch = useDispatch();
-
-
-    const restaurantDetail = css`
-    MenuItem
-    
-    `
-
     const { id } = useParams();
     const [restaurant, menuItems] = useResMenuData(
         MENU_URL,

@@ -37,7 +37,7 @@ const useResMenuData = (
                         ?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map(
                             (x) => x.card?.card
                         )
-                        ?.filter((x) => x["@type"] == MENU_ITEM_TYPE_KEY)
+                        ?.filter((x) => x["@type"] === MENU_ITEM_TYPE_KEY)
                         ?.map((x) => x.itemCards)
                         .flat()
                         .map((x) => x.card?.info) || [];

@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
-
 import { Container } from '@mui/material';
 import { Link } from 'react-router-dom';
+import React from 'react';
 import RestoItem from './RestoItem';
 import { URL } from '../utils/constants';
 import useResData from '../hooks/useResData';
@@ -18,7 +17,7 @@ const container = {
 
 const Body = () => {
 
-    const [allrestaurnats, filteredRestaunant] = useResData(URL)
+    const [allrestaurnats] = useResData(URL)
 
     return <Container sx={container} fixed >
         {allrestaurnats.map((item, index) => (

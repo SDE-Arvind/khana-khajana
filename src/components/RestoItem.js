@@ -1,4 +1,4 @@
-import { Button, Card, CardMedia, InputLabel } from '@mui/material'
+import { Card, CardMedia, InputLabel } from '@mui/material'
 
 import { IMG_CDN_URL } from '../utils/constants';
 import React from 'react'
