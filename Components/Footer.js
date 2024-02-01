@@ -6,17 +6,17 @@ const Footer = () => {
       Created By
       <i className="fa-solid fa-heart"></i>
       <a
-        href="https://www.linkedin.com/in/chetannada/"
+        href="https://www.linkedin.com/in/arvind302/"
         target="_blank"
-        title="Chetan Nada's Linkedin Profile"
+        title="Arvind Rathour Linkedin Profile"
       >
-        Chetan Nada
+        Arvind Rathour
       </a>
       <i className="fa-solid fa-copyright"></i>
-        {year}
-        <strong>
-          Food<span>Fire</span>
-        </strong>
+      {year}
+      <strong>
+        Khana<span>Khajana</span>
+      </strong>
     </div>
   );
 };
