@@ -1,10 +1,10 @@
-import { Button, Card, Container, InputLabel } from '@mui/material'
+import { Button, Card, InputLabel } from '@mui/material'
 import { clearCart, removeItem } from '../slice/cartSlice';
 import { useDispatch, useSelector } from 'react-redux'
 
 import React from 'react'
 
-export default function Cart() {
+const Cart = () => {
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.items)
 
@@ -24,8 +24,10 @@ export default function Cart() {
         )
     }
     return (
-        <Container>
+        <div className="body-container" style={{ padding: 100 }}>
             <Button disabled={cartItems.length === 0} variant='contained' onClick={() => { dispatch(clearCart()) }}> CLEAR CART</Button>
-            {cartItems.map((item) => { return <CardItem key={item?.id} item={item} /> })}</Container>
+            {cartItems.map((item) => { return <CardItem key={item?.id} item={item} /> })}
+        </div>
     )
 }
+export default Cart

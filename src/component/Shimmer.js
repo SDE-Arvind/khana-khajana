@@ -40,7 +40,7 @@ export const MenuShimmer = () => {
                   <p className="shimmer-w60  stroke animate"> </p>
                 </div>
                 <div className="shimmer-img-wrapper">
-                  <img alt='shimmer-str' className="shimmer-img stroke animate" />
+                  <img alt='shimmer str' className="shimmer-img stroke animate" />
                   <div className="shimmer-btn stroke animate"> </div>
                 </div>
               </div>

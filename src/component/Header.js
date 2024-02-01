@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { useNavigate } from "react-router-dom";
 import useOnline from "../hooks/useOnline";
+import { useSelector } from "react-redux";
 
 // Title component for display logo
 const Title = () => (
@@ -37,7 +38,7 @@ const Header = () => {
 
   // call custom hook useOnline if user is online or not
   const isOnline = useOnline();
-
+  const cartItems = useSelector((state) => state.cart.items)
   return (
     <div className="header">
       <Title />
@@ -58,7 +59,10 @@ const Header = () => {
             <Link to="/contact">Contact</Link>
           </li>
           <li>
-            <i className="fa-solid fa-cart-shopping"></i>
+            <Link to="/cart">
+              <i className="fa-solid fa-cart-shopping"></i>
+              {cartItems?.length}
+            </Link>
           </li>
           <li>
             {/* use conditional rendering for login and logout */}

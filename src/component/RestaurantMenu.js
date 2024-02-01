@@ -8,6 +8,8 @@ import {
 
 import { MenuShimmer } from "./Shimmer";
 import UserOffline from "./UserOffline";
+import { addItem } from "../slice/cartSlice";
+import { useDispatch } from "react-redux";
 import useOnline from "../hooks/useOnline"; // imported custom hook useOnline which checks user is online or not
 import { useParams } from "react-router-dom"; // import useParams for read `resId`
 import useResMenuData from "../hooks/useResMenuData"; // imported custom hook useResMenuData which gives restaurant Menu data from swigy api
@@ -22,6 +24,7 @@ const RestaurantMenu = () => {
   );
 
   const isOnline = useOnline();
+  const dispatch = useDispatch();
 
   // if user is not Online then return UserOffline component
   if (!isOnline) {
@@ -70,32 +73,38 @@ const RestaurantMenu = () => {
             <p className="menu-count">{menuItems.length} ITEMS</p>
           </div>
           <div className="menu-items-list">
-            {menuItems.map((item) => (
-              <div className="menu-item" key={item?.id}>
-                <div className="menu-item-details">
-                  <h3 className="item-title">{item?.name}</h3>
-                  <p className="item-cost">
-                    {item?.price > 0
-                      ? new Intl.NumberFormat("en-IN", {
-                        style: "currency",
-                        currency: "INR",
-                      }).format(item?.price / 100)
-                      : " "}
-                  </p>
-                  <p className="item-desc">{item?.description}</p>
+            {menuItems.map((item) => {
+              const handleAddToCart = () => {
+                dispatch(addItem(item));
+              };
+
+              return (
+                <div className="menu-item" key={item?.id}>
+                  <div className="menu-item-details">
+                    <h3 className="item-title">{item?.name}</h3>
+                    <p className="item-cost">
+                      {item?.price > 0
+                        ? new Intl.NumberFormat("en-IN", {
+                          style: "currency",
+                          currency: "INR",
+                        }).format(item?.price / 100)
+                        : " "}
+                    </p>
+                    <p className="item-desc">{item?.description}</p>
+                  </div>
+                  <div className="menu-img-wrapper">
+                    {item?.imageId && (
+                      <img
+                        className="menu-item-img"
+                        src={ITEM_IMG_CDN_URL + item?.imageId}
+                        alt={item?.name}
+                      />
+                    )}
+                    <button className="add-btn" onClick={handleAddToCart}> ADD +</button>
+                  </div>
                 </div>
-                <div className="menu-img-wrapper">
-                  {item?.imageId && (
-                    <img
-                      className="menu-item-img"
-                      src={ITEM_IMG_CDN_URL + item?.imageId}
-                      alt={item?.name}
-                    />
-                  )}
-                  <button className="add-btn"> ADD +</button>
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </div>
