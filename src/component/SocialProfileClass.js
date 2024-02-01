@@ -1,11 +1,12 @@
-import { Component } from "react";
-import { SiGmail, SiLinkedin, SiGithub, SiTwitter } from "react-icons/si";
 import {
-  Github_Link,
   Email_Link,
+  Github_Link,
   Linkedin_Link,
   Twitter_Link,
-} from "../constants";
+} from "../utils/constants";
+import { SiGithub, SiGmail, SiLinkedin, SiTwitter } from "react-icons/si";
+
+import { Component } from "react";
 
 class SocialProfileClass extends Component {
   constructor(props) {

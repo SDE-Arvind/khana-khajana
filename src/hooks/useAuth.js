@@ -1,5 +1,5 @@
+import useLocalStorage from "../hooks/useLocalStorage";
 import { useState } from "react";
-import useLocalStorage from "../Hooks/useLocalStorage";
 
 const useAuth = () => {
     // call custom hook useLocalStorage for getting localStorage value of user

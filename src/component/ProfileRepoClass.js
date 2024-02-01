@@ -1,11 +1,12 @@
-import { Component } from "react";
+import { BiGitRepoForked, BiStar } from "react-icons/bi";
 import {
   Github_API_User,
-  Github_UserName,
   Github_Repository_Name,
+  Github_UserName,
   options,
-} from "../constants";
-import { BiGitRepoForked, BiStar } from "react-icons/bi";
+} from "../utils/constants";
+
+import { Component } from "react";
 import { FiUsers } from "react-icons/fi";
 
 class ProfileRepoClass extends Component {

@@ -1,12 +1,12 @@
-import RestaurantCard from "./RestaurantCard";
-import { useState } from "react"; /* This is named export */
-import Shimmer from "./Shimmer"; /* This is default export */
-import { swiggy_api_URL } from "../constants";
 import { Link } from "react-router-dom";
-import { filterData } from "../Utils/Helper"; // For reusability or readability filterData function is added in Helper.js file of Utils folder
-import useResData from "../Hooks/useResData"; // imported custom hook useResData which gives All Restaurant and  Filtered Restaurant data from swigy api
-import useOnline from "../Hooks/useOnline"; // imported custom hook useOnline which checks user is online or not
+import RestaurantCard from "./RestaurantCard";
+import Shimmer from "./Shimmer"; /* This is default export */
 import UserOffline from "./UserOffline";
+import { filterData } from "../utils/Helper"; // For reusability or readability filterData function is added in Helper.js file of  folder
+import { swiggy_api_URL } from "../utils/constants";
+import useOnline from "../hooks/useOnline"; // imported custom hook useOnline which checks user is online or not
+import useResData from "../hooks/useResData"; // imported custom hook useResData which gives All Restaurant and  Filtered Restaurant data from swigy api
+import { useState } from "react"; /* This is named export */
 
 // Body Component for body section: It contain all restaurant cards
 const Body = () => {

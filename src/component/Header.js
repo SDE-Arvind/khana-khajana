@@ -1,10 +1,10 @@
 import FoodFireLogo from "../Images/logo.jpeg";
 import { Link } from "react-router-dom"; // imported Link for client side routing
-import useAuth from "../Hooks/useAuth";
+import useAuth from "../hooks/useAuth";
 import { useEffect } from "react";
-import useLocalStorage from "../Hooks/useLocalStorage";
+import useLocalStorage from "../hooks/useLocalStorage";
 import { useNavigate } from "react-router-dom";
-import useOnline from "../Hooks/useOnline";
+import useOnline from "../hooks/useOnline";
 
 // Title component for display logo
 const Title = () => (

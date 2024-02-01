@@ -1,15 +1,16 @@
-import { useParams } from "react-router-dom"; // import useParams for read `resId`
 import {
-  swiggy_menu_api_URL,
   IMG_CDN_URL,
   ITEM_IMG_CDN_URL,
   MENU_ITEM_TYPE_KEY,
   RESTAURANT_TYPE_KEY,
-} from "../constants";
+  swiggy_menu_api_URL,
+} from "../utils/constants";
+
 import { MenuShimmer } from "./Shimmer";
-import useResMenuData from "../Hooks/useResMenuData"; // imported custom hook useResMenuData which gives restaurant Menu data from swigy api
-import useOnline from "../Hooks/useOnline"; // imported custom hook useOnline which checks user is online or not
 import UserOffline from "./UserOffline";
+import useOnline from "../hooks/useOnline"; // imported custom hook useOnline which checks user is online or not
+import { useParams } from "react-router-dom"; // import useParams for read `resId`
+import useResMenuData from "../hooks/useResMenuData"; // imported custom hook useResMenuData which gives restaurant Menu data from swigy api
 
 const RestaurantMenu = () => {
   const { resId } = useParams(); // call useParams and get value of restaurant id using object destructuring
@@ -21,9 +22,9 @@ const RestaurantMenu = () => {
   );
 
   const isOnline = useOnline();
-  
+
   // if user is not Online then return UserOffline component
-  if(!isOnline){
+  if (!isOnline) {
     return <UserOffline />
   }
 
@@ -47,8 +48,8 @@ const RestaurantMenu = () => {
                 restaurant?.avgRating < 4
                   ? { backgroundColor: "var(--light-red)" }
                   : restaurant?.avgRating === "--"
-                  ? { backgroundColor: "white", color: "black" }
-                  : { color: "white" }
+                    ? { backgroundColor: "white", color: "black" }
+                    : { color: "white" }
               }
             >
               <i className="fa-solid fa-star"></i>
@@ -76,9 +77,9 @@ const RestaurantMenu = () => {
                   <p className="item-cost">
                     {item?.price > 0
                       ? new Intl.NumberFormat("en-IN", {
-                          style: "currency",
-                          currency: "INR",
-                        }).format(item?.price / 100)
+                        style: "currency",
+                        currency: "INR",
+                      }).format(item?.price / 100)
                       : " "}
                   </p>
                   <p className="item-desc">{item?.description}</p>
