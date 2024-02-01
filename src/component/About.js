@@ -1,6 +1,7 @@
-import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
+
 import food from "../Images/burger-image.png";
+import { useState } from "react";
 
 const About = () => {
   const [show, setShow] = useState(false);
@@ -43,7 +44,7 @@ const About = () => {
           </h4>
         </div>
         <div className="about-right">
-          <img src={food} alt="Food Image" />
+          <img src={food} alt="about" />
         </div>
       </div>
     </div>

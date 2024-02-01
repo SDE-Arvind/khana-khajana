@@ -8,6 +8,7 @@ const Footer = () => {
       <a
         href="https://www.linkedin.com/in/arvind302/"
         target="_blank"
+        rel="noreferrer"
         title="Arvind Rathour Linkedin Profile"
       >
         Arvind Rathour

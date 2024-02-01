@@ -33,7 +33,7 @@ const Header = () => {
     if (getLocalStorage === null) {
       setIsLoggedin(false);
     }
-  }, [getLocalStorage])
+  }, [getLocalStorage, setIsLoggedin])
 
   // call custom hook useOnline if user is online or not
   const isOnline = useOnline();

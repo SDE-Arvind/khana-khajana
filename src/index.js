@@ -1,6 +1,5 @@
 import './index.css';
 
-import React, { Suspense, lazy } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import About from "./component/About";
@@ -11,6 +10,7 @@ import Error from "./component/Error";
 import Login from "./component/Login";
 import Profile from "./component/ProfileClass";
 import { Provider } from 'react-redux';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import RestaurantMenu from "./component/RestaurantMenu";
 import reportWebVitals from './reportWebVitals';

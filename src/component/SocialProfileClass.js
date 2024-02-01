@@ -9,22 +9,6 @@ import { SiGithub, SiGmail, SiLinkedin, SiTwitter } from "react-icons/si";
 import { Component } from "react";
 
 class SocialProfileClass extends Component {
-  constructor(props) {
-    super(props);
-    // console.log("SocialProfileClass child constructor");
-  }
-
-  async componentDidMount() {
-    // console.log("SocialProfileClass child componentDidMount");
-  }
-
-  componentDidUpdate() {
-    // console.log("SocialProfileClass child componentDidUpdate");
-  }
-
-  componentWillUnmount() {
-    // console.log("SocialProfileClass child componentWillUnmount");
-  }
 
   render() {
     // console.log("SocialProfileClass child render");
