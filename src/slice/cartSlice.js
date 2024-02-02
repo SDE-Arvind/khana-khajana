@@ -15,14 +15,24 @@ const cartSlice = createSlice({
                 // If the item is already in the cart, increase its quantity
                 existingItem.quantity += newItem.quantity || 1;
             } else {
+                newItem.quantity = 1;
                 // If the item is not in the cart, add it
                 state.items.push(newItem);
             }
         },
         removeItem: (state, action) => {
             const itemIdToRemove = action.payload;
-            console.log("====", itemIdToRemove)
-            state.items = state.items.filter(item => item.id !== itemIdToRemove);
+            const itemToRemove = state.items.find(item => item.id === itemIdToRemove);
+
+            if (itemToRemove) {
+                if (itemToRemove.quantity > 0) {
+                    // Decrease quantity
+                    itemToRemove.quantity -= 1;
+                } else {
+                    // Remove the item if quantity is already 0
+                    state.items = state.items.filter(item => item.id !== itemIdToRemove);
+                }
+            }
         },
         clearCart: (state) => {
             state.items = [];
