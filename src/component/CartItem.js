@@ -1,9 +1,9 @@
 import { Card, InputLabel } from '@mui/material';
+import { addItem, removeItem } from '../slice/cartSlice';
 
 import { ITEM_IMG_CDN_URL } from '../utils/constants';
 import React from 'react'
 import deleteImage from '../Images/delete.png'
-import { removeItem } from '../slice/cartSlice';
 import { useDispatch } from 'react-redux';
 
 export default function CartItem({ item }) {
@@ -12,6 +12,10 @@ export default function CartItem({ item }) {
     const deleteItem = () => {
         dispatch(removeItem(item?.id))
     }
+
+    const handleAddToCart = () => {
+        dispatch(addItem(item));
+    };
 
     return (
         <Card sx={{ padding: 1, margin: 1, display: 'flex', justifyContent: 'space-between' }}>
@@ -31,13 +35,21 @@ export default function CartItem({ item }) {
                         ? new Intl.NumberFormat("en-IN", {
                             style: "currency",
                             currency: "INR",
-                        }).format(item?.price / 100)
+                        }).format(item?.price / 100 * item.quantity)
                         : " "}
                     </InputLabel>
 
                 </div>
             </div>
-            <img alt={'delete'} onClick={deleteItem} height={30} src={deleteImage} />
+            {
+
+                <div>
+                    <button className="symbol-btn" onClick={deleteItem}> - </button>
+                    {"  " + item.quantity + "  "}
+                    <button className="symbol-btn" onClick={handleAddToCart}>+</button>
+                </div>
+
+            }
         </Card >
 
     )
