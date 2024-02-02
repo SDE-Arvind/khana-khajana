@@ -68,6 +68,13 @@ a {
 .user-name {
   color: var(--dark-green);
 }
+.cart-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: space-between;
+  padding: 5px;
+  background-color: greenyellow;
+}
 
 /* nav items CSS start*/
 .nav-items > ul {

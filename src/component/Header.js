@@ -60,8 +60,10 @@ const Header = () => {
           </li>
           <li>
             <Link to="/cart">
-              <i className="fa-solid fa-cart-shopping"></i>
-              {cartItems?.length}
+              <div className="cart-icon-container ">
+                <i className="fa-solid fa-cart-shopping"></i>
+                ({cartItems?.length})
+              </div>
             </Link>
           </li>
           <li>
