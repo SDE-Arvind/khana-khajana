@@ -3,7 +3,6 @@ import { addItem, removeItem } from '../slice/cartSlice';
 
 import { ITEM_IMG_CDN_URL } from '../utils/constants';
 import React from 'react'
-import deleteImage from '../Images/delete.png'
 import { useDispatch } from 'react-redux';
 
 export default function CartItem({ item }) {
