@@ -11,7 +11,7 @@ const cartSlice = createSlice({
             const newItem = action.payload;
             const existingItem = state.items.find(item => item.id === newItem.id);
 
-            if (existingItem?.quantity) {
+            if (existingItem) {
                 // If the item is already in the cart, increase its quantity
                 existingItem.quantity += 1;
             } else {
@@ -25,7 +25,7 @@ const cartSlice = createSlice({
             const itemToRemove = state.items.find(item => item.id === itemIdToRemove);
 
             if (itemToRemove) {
-                if (itemToRemove.quantity > 0) {
+                if (itemToRemove?.quantity > 1) {
                     // Decrease quantity
                     itemToRemove.quantity -= 1;
                 } else {

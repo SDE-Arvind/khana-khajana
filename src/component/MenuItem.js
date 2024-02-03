@@ -11,11 +11,11 @@ export default function MenuItem({ item }) {
 
     useEffect(() => {
         const itemInCart = itemsInCart.find((_item) => _item.id === item?.id)
-        itemInCart && setCurrentItem(itemInCart)
+        setCurrentItem(itemInCart || item)
     }, [itemsInCart, item])
 
     const handleAddToCart = () => {
-        dispatch(addItem(item));
+        dispatch(addItem({ ...item }));
     };
     const handleRemoveFromCart = () => {
         dispatch(removeItem(item?.id));
